@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const Main = () => {
-    const movies = [
+    const movies = [ //array iniziale
         { title: 'Inception', genre: 'Fantascienza' },
         { title: 'Il Padrino', genre: 'Thriller' },
         { title: 'Titanic', genre: 'Romantico' },
@@ -10,16 +10,17 @@ const Main = () => {
         { title: 'Pulp Fiction', genre: 'Thriller' },
     ];
 
-    const [selectedGenre, setSelectedGenre] = useState('');
-    const [filteredMovies, setFilteredMovies] = useState(movies);
-    const [searchTerm, setSearchTerm] = useState('');
-    const [newMovie, setNewMovie] = useState({ title: '', genre: '' });
+     //dichiaraz variabili di stato
+    const [selectedGenre, setSelectedGenre] = useState(''); //const per la selection genere
+    const [filteredMovies, setFilteredMovies] = useState(movies);//memorizza array film filtrati
+    const [searchTerm, setSearchTerm] = useState('');//memorizza la stringa di ricerca inserita dall' utente
+    const [newMovie, setNewMovie] = useState({ title: '', genre: '' });//const per dati del nuovo film da aggiungere 
 
     useEffect(() => {
         let filtered = movies;
 
         if (selectedGenre) {
-            filtered = filtered.filter((movie) => movie.genre === selectedGenre);
+            filtered = filtered.filter((movie) => movie.genre === selectedGenre); // filtro per selez genere
         }
 
         if (searchTerm) {
